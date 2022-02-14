@@ -1,25 +1,24 @@
-
-from utility import *
 import time
 import configparser
 import os
 import ftplib
 import datetime
 from classAI import AI
+from config import *
+
 
 class Main:
     def __init__(self):
         
 
         self.config_ini = self.read_ini('config.ini')
-        self.ftp = ftplib.FTP(self.config_ini['FTP']['server'], self.config_ini['FTP']['username'], self.config_ini['FTP']['password'])
-        if not os.path.isdir('./temp'):
-            os.mkdir('./temp')
+        #self.ftp = ftplib.FTP(self.config_ini['FTP']['server'], self.config_ini['FTP']['username'], self.config_ini['FTP']['password'])
 
         self.ai = AI(self.config_ini)
         self.ai.start()
+        
 
-        self.loop()
+        #self.loop()
 
     def read_ini(self,file_path):
         config_ini = {'CAMERA':{}, 'FTP':{}}
